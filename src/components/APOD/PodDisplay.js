@@ -19,11 +19,11 @@ const PodDisplay = () => {
     return (
         <div className="APOD">
             <h1>NASA's Photo of the Day for {(date.getMonth()+1)+'/'+(date.getDate()+1)+'/'+date.getFullYear()}</h1>
-            <h2>{pod.title}</h2>
-            <p>Copyright: {pod.copyright}</p>
+            <h2 className="title">{pod.title}</h2>
+            <p className="copyright">Copyright: {pod.copyright}</p>
             <img className='space-image' alt='space photo of the day'
             src={pod.url} />
-            <p>{pod.explanation}</p>
+            <p className="description">{pod.explanation}</p>
             <p className='previous'>Click HERE to see previous photos</p>
         </div>
     );
