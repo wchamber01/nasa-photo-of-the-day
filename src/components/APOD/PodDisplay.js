@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from '../../../node_modules/axios';
 
-const POD_Display = () => {
-    const [POD, setPOD] = useState();
+const PodDisplay = () => {
+    const [pod, setPod] = useState([]);
 
     useEffect(() => {
         axios
             .get(`https://api.nasa.gov/planetary/apod?api_key=SbypF7wqPCx8QuOTmLciMQKSZ9kbIYxgdd8RTFMR`)
             .then(response => {
                 console.log(response.data);
-                setPOD(response.data);
+                setPod(response.data);
             })
             .catch(error => {
                 console.log("Sorry, no photo available.", error);
@@ -17,15 +17,14 @@ const POD_Display = () => {
     }, []);
     return (
         <div className="APOD">
-            <h1>NASA's Photo of the Day</h1>
-            {/* <h2>{POD.title}</h2>
-            <p>{POD.date}</p>
-            <img className='space-image' alt='space image of the day'
-            src={POD.imgUrl} />
-            <p>{POD.description}</p> */}
+            <h1>NASA's Photo of the Day for {pod.date}</h1>
+            <h2>{pod.title}</h2>
+            <img className='space-image' alt='space photo of the day'
+            src={pod.url} />
+            <p>{pod.explanation}</p>
             <p className='previous'>Click HERE to see previous photos</p>
         </div>
     );
 };
 
-export default POD_Display;
+export default PodDisplay;
