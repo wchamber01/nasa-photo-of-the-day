@@ -31,3 +31,18 @@
     transform: rotate(360deg);
   }
 }
+
+.APOD {
+  background-color:rgba(0, 0, 0, 0.91);
+  color: rgba(238, 232, 170, 0.8)
+}
+
+.APOD .title, p{
+  font-style: italic;
+}
+
+.APOD .description{
+  width: 800px;
+  text-align: justify;
+  margin-left: 13%;
+}
