@@ -3,7 +3,8 @@ import axios from '../../../node_modules/axios';
 
 const PodDisplay = () => {
     const [pod, setPod] = useState([]);
-    let date = new Date(pod.date);
+    let date = new Date();
+    // console.log(date, 'date')
 
     useEffect(() => {
         axios
@@ -18,7 +19,7 @@ const PodDisplay = () => {
     }, []);
     return (
         <div className="APOD">
-            <h1>NASA's Photo of the Day for {(date.getMonth()+1)+'/'+(date.getDate()+1)+'/'+date.getFullYear()}</h1>
+            <h1>NASA's Photo of the Day for {(date.getMonth()+1)+'/'+(date.getDate())+'/'+date.getFullYear()}</h1>
             <h2 className="title">{pod.title}</h2>
             <p className="copyright">Copyright: {pod.copyright}</p>
             <img className='space-image' alt='space photo of the day'
